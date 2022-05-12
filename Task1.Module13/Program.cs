@@ -22,7 +22,7 @@ namespace Task1.Module13
 
             ////Adding URL of file and time counter
             StreamReader read = new StreamReader("C:\\Users\\Михаил\\Downloads\\Text1.txt");
-            Stopwatch swatch = Stopwatch.StartNew();
+            Stopwatch fwatch = Stopwatch.StartNew();
 
             ////First list
             while (!read.EndOfStream)
@@ -30,9 +30,11 @@ namespace Task1.Module13
                 nlist.Add(read.ReadLine());
             }
 
-            double fnum = swatch.Elapsed.TotalMilliseconds;
+            double fnum = fwatch.Elapsed.TotalMilliseconds;
             Console.WriteLine($"Время первой операции - {fnum}");
 
+
+            Stopwatch swatch = Stopwatch.StartNew();
             ////Second list
             while (!read.EndOfStream)
             {
@@ -40,7 +42,7 @@ namespace Task1.Module13
             }
 
             double snum = swatch.Elapsed.TotalMilliseconds;
-            Console.WriteLine($"Время первой операции - {snum}");
+            Console.WriteLine($"Время второй операции - {snum}");
 
             ////Difference in time
             Console.WriteLine($"Разница - {snum - fnum}");
