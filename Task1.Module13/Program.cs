@@ -32,6 +32,7 @@ namespace Task1.Module13
 
             double fnum = fwatch.Elapsed.TotalMilliseconds;
             Console.WriteLine($"Время первой операции - {fnum}");
+            fwatch.Reset();
 
 
             Stopwatch swatch = Stopwatch.StartNew();
@@ -43,9 +44,53 @@ namespace Task1.Module13
 
             double snum = swatch.Elapsed.TotalMilliseconds;
             Console.WriteLine($"Время второй операции - {snum}");
+            swatch.Reset();
 
             ////Difference in time
-            Console.WriteLine($"Разница - {snum - fnum}");
+            Console.WriteLine($"Разница в заполнении - {snum - fnum}");
+
+            fwatch.Start();
+            foreach(var i in nlist)
+            {
+                Console.Write("");
+            }
+
+            fnum = fwatch.Elapsed.TotalMilliseconds;
+            Console.WriteLine($"Время первого перебора - {fnum}");
+            fwatch.Reset();
+
+            swatch.Start();
+            foreach (var i in llist)
+            {
+                Console.Write("");
+            }
+
+            snum = swatch.Elapsed.TotalMilliseconds;
+            Console.WriteLine($"Время второго перебора - {snum}");
+            swatch.Reset();
+
+            Console.WriteLine($"Разница в переборе - {snum - fnum}");
+
+
+            fwatch.Start();
+            nlist.Add("fsfsfsf");
+
+            fnum = fwatch.Elapsed.TotalMilliseconds;
+            Console.WriteLine($"Время первого добавления - {fnum}");
+            fwatch.Reset();
+
+
+            swatch.Start();
+            nlist.Add("fsfsfsf");
+
+            snum = swatch.Elapsed.TotalMilliseconds;
+            Console.WriteLine($"Время второго добавления - {snum}");
+            swatch.Reset();
+
+            Console.WriteLine($"Разница в добавлении - {snum - fnum}");
+
+
+
             Console.ReadLine();
         }
     }
